@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: sample-static-python
+build:
+  local: {}
+  artifacts:
+    - image: sample-static-python-frontend
+      context: frontend
+      buildpacks:
+        builder: paketobuildpacks/builder-jammy-base
+    - image: sample-static-python-api
+      context: api
+      buildpacks:
+        builder: paketobuildpacks/builder-jammy-base
+deploy: {}
